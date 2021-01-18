@@ -1,0 +1,37 @@
+{{#if details}}
+  {{#if (not-eq block.entity.type "cve")}}
+    {{#each details.data as |object index|}}
+      {{#if object.asset_category}}
+        <span {{on "click" (optional this.scrollToIntegration)}} class="integration-summary-tag integration-background-color integration-border-color">
+           <span class="acronym integration-text-bold-color">{{block.acronym}}</span>
+           <span class="integration-text-color">Type: {{object.asset_category}}</span>
+        </span>
+      {{/if}}
+      {{#if object.asset_name}}
+        <span {{on "click" (optional this.scrollToIntegration)}} class="integration-summary-tag integration-background-color integration-border-color">
+           <span class="acronym integration-text-bold-color">{{block.acronym}}</span>
+           <span class="integration-text-color">Name: {{object.asset_name}}</span>
+        </span>
+      {{/if}}
+    {{/each}}
+  {{else}}
+    {{#if details.total_items}}
+      <span {{on "click" (optional this.scrollToIntegration)}} class="integration-summary-tag integration-background-color integration-border-color">
+         <span class="acronym integration-text-bold-color">{{block.acronym}}</span>
+         <span class="integration-text-color">Total Assets: {{details.total_items}}</span>
+      </span>
+    {{/if}}
+    {{#if details.data.0.cvss3_score}}
+      <span {{on "click" (optional this.scrollToIntegration)}} class="integration-summary-tag integration-background-color integration-border-color">
+         <span class="acronym integration-text-bold-color">{{block.acronym}}</span>
+         <span class="integration-text-color">CVSSv3 Score: {{details.data.0.cvss3_score}}</span>
+      </span>
+    {{/if}}
+    {{#if details.data.0.severity}}
+      <span {{on "click" (optional this.scrollToIntegration)}} class="integration-summary-tag integration-background-color integration-border-color">
+         <span class="acronym integration-text-bold-color">{{block.acronym}}</span>
+         <span class="integration-text-color">Severity: {{details.data.0.severity}}</span>
+      </span>
+    {{/if}}
+  {{/if}}
+{{/if}}

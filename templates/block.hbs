@@ -1,0 +1,333 @@
+{{#if (not-eq block.entity.type "cve")}}
+  {{#if details.data}}
+    {{#each details.data as |object index|}}
+        <h1 class="p-title">
+            {{fa-icon "server" fixedWidth=true}}  Asset Summary
+        </h1>
+        {{#if object.asset_category}}
+          <div>
+            <span class="p-key">Asset Category: </span>
+            <span class="p-value">{{object.asset_category}}</span>
+          </div>
+        {{/if}}
+        {{#if object.account_name}}
+          <div>
+            <span class="p-key">Account Name: </span>
+            <span class="p-value">{{object.account_name}}</span>
+          </div>
+        {{/if}}
+        {{#if object.asset_name}}
+          <div>
+            <span class="p-key">Asset Name: </span>
+            <span class="p-value">{{object.asset_name}}</span>
+          </div>
+        {{/if}}
+        {{#if object.vm_id}}
+          <div>
+            <span class="p-key">VM ID: </span>
+            <span class="p-value">{{object.vm_id}}</span>
+          </div>
+        {{/if}}
+        {{#if object.asset_state}}
+          <div>
+            <span class="p-key">Asset State: </span>
+            <span class="p-value">{{object.asset_state}}</span>
+          </div>
+        {{/if}}
+        {{#if object.internet_facing}}
+          <div>
+            <span class="p-key">Internet Facing: </span>
+            <span class="p-value">{{object.internet_facing}}</span>
+          </div>
+        {{/if}}
+        {{#if object.internet_facing_new}}
+          <div>
+            <span class="p-key">Internet Facing New: </span>
+            <span class="p-value">{{object.internet_facing_new}}</span>
+          </div>
+        {{/if}}
+        {{#if object.create_time}}
+          <div>
+            <span class="p-key">Create Time: </span>
+            <span class="p-value">{{object.create_time}}</span>
+          </div>
+        {{/if}}
+        {{#if object.compute}}
+          <h1 class="p-title">
+              {{fa-icon "microchip" fixedWidth=true}}  Compute Details
+          </h1>
+        {{/if}}
+        {{#if object.compute.distribution_name}}
+          <div>
+            <span class="p-key">Distro Name: </span>
+            <span class="p-value">{{object.compute.distribution_name}}</span>
+          </div>
+        {{/if}}
+        {{#if object.compute.distribution_version}}
+          <div>
+            <span class="p-key">Distro Version: </span>
+            <span class="p-value">{{object.compute.distribution_version}}</span>
+          </div>
+        {{/if}}
+        {{#if object.compute.roles}}
+          {{#each object.compute.roles as |role index|}}
+            {{#if (eq role.is_public false)}}
+              <div>
+                <span class="p-key">Role #{{inc index}}: </span>
+                <span class="p-value">{{role.name}} (Not Public)</span>
+              </div>
+            {{else}}
+              <div>
+                <span class="p-key">Role #{{inc index}}: </span>
+                <span class="p-value">{{role.name}} (Public)</span>
+              </div>
+            {{/if}}
+          {{/each}}
+        {{/if}}
+        {{#if object.compute.vpcs}}
+          {{#each object.compute.vpcs as |vpc|}}
+            <div>
+              <span class="p-key">VPC: </span>
+              <span class="p-value">{{vpc}}</span>
+            </div>
+          {{/each}}
+        {{/if}}
+        {{#if object.compute.public_ips}}
+          {{#each object.compute.public_ips as |public_ip|}}
+            <div>
+              <span class="p-key">Public IP: </span>
+              <span class="p-value">{{public_ip}}</span>
+            </div>
+          {{/each}}
+        {{/if}}
+        {{#if object.compute.private_ips}}
+          {{#each object.compute.private_ips as |private_ip|}}
+            <div>
+              <span class="p-key">Private IP: </span>
+              <span class="p-value">{{private_ip}}</span>
+            </div>
+          {{/each}}
+        {{/if}}
+        {{#if object.compute.public_dnss}}
+          {{#each object.compute.public_dnss as |public_dns|}}
+            <div>
+              <span class="p-key">Public DNS: </span>
+              <span class="p-value">{{public_dns}}</span>
+            </div>
+          {{/each}}
+        {{/if}}
+        {{#if object.compute.private_dnss}}
+          {{#each object.compute.private_dnss as |private_dns|}}
+            <div>
+              <span class="p-key">Private DNS: </span>
+              <span class="p-value">{{private_dns}}</span>
+            </div>
+          {{/each}}
+        {{/if}}
+        {{#if object.compute.security_groups}}
+          {{#each object.compute.security_groups as |security_group|}}
+            <div>
+              <span class="p-key">Security Group: </span>
+              <span class="p-value">{{security_group}}</span>
+            </div>
+          {{/each}}
+        {{/if}}
+        {{#if object.compute.subnets}}
+          {{#each object.compute.subnets as |subnet|}}
+            <div>
+              <span class="p-key">Subnet: </span>
+              <span class="p-value">{{subnet}}</span>
+            </div>
+          {{/each}}
+        {{/if}}
+        {{#if object.compute.regions}}
+          {{#each object.compute.regions as |region|}}
+            <div>
+              <span class="p-key">Region: </span>
+              <span class="p-value">{{region}}</span>
+            </div>
+          {{/each}}
+        {{/if}}
+        {{#if object.compute.regions_names}}
+          {{#each object.compute.regions_names as |regions_name|}}
+            <div>
+              <span class="p-key">Region Name: </span>
+              <span class="p-value">{{regions_name}}</span>
+            </div>
+          {{/each}}
+        {{/if}}
+        {{#if object.compute.availability_zones}}
+          {{#each object.compute.availability_zones as |availability_zone|}}
+            <div>
+              <span class="p-key">Availability Zone: </span>
+              <span class="p-value">{{availability_zone}}</span>
+            </div>
+          {{/each}}
+        {{/if}}
+        {{#if object.compute.iam_role}}
+          <div>
+            <span class="p-key">IAM Role: </span>
+            <span class="p-value">{{object.compute.iam_role}}</span>
+          </div>
+        {{/if}}
+        {{#if object.state}}
+          <h1 class="p-title">
+              {{fa-icon "info-circle" fixedWidth=true}}  State Details
+          </h1>
+        {{/if}}
+        {{#if object.state.status}}
+          <div>
+            <span class="p-key">Status: </span>
+            <span class="p-value">{{object.state.status}}</span>
+          </div>
+        {{/if}}
+        {{#if object.state.status_time}}
+          <div>
+            <span class="p-key">Status Time: </span>
+            <span class="p-value">{{object.state.status_time}}</span>
+          </div>
+        {{/if}}
+        {{#if object.state.created_at}}
+          <div>
+            <span class="p-key">Created At: </span>
+            <span class="p-value">{{object.state.created_at}}</span>
+          </div>
+        {{/if}}
+        {{#if object.state.last_seen}}
+          <div>
+            <span class="p-key">Last Seen: </span>
+            <span class="p-value">{{object.state.last_seen}}</span>
+          </div>
+        {{/if}}
+        {{#if object.state.score}}
+          <div>
+            <span class="p-key">Score: </span>
+            <span class="p-value">{{object.state.score}}</span>
+          </div>
+        {{/if}}
+        {{#if object.state.severity}}
+          <div>
+            <span class="p-key">Severity: </span>
+            <span class="p-value">{{object.state.severity}}</span>
+          </div>
+        {{/if}}
+        {{#if object.state.unsafe_since}}
+          <div>
+            <span class="p-key">Unsafe Since: </span>
+            <span class="p-value">{{object.state.unsafe_since}}</span>
+          </div>
+        {{/if}}
+        {{#if object.state.safe_since}}
+          <div>
+            <span class="p-key">Safe Since: </span>
+            <span class="p-value">{{object.state.safe_since}}</span>
+          </div>
+        {{/if}}
+        {{#if object.tags_list}}
+          {{#if (eq numTagsShown 0)}}
+            <div>
+              <span class="p-title">{{fa-icon "tags" fixedWidth=true}} No Tags Found</span>
+            </div>
+          {{else}}
+            <div class="toggle-header">
+              <span class="p-action" {{action "toggleShowTags"}}>
+                {{fa-icon "tags" fixedWidth=true}}
+                Tags ({{numTagsShown}} of {{object.tags_list.length}})
+                {{fa-icon (if showTags "caret-up" "caret-down") fixedWidth=true}}
+              </span>
+            </div>
+            {{#if showTags}}
+              {{#each (limit object.tags_list maxTagsToShow) as |tag|}}
+                <span class="section-tag">{{tag.key}}: {{tag.value}}</span>
+              {{/each}}
+            {{/if}}
+          {{/if}}
+        {{/if}}
+        <br>
+    {{/each}}
+  {{/if}}
+{{/if}}
+{{#if (eq block.entity.type "cve")}}
+  {{#if details.data}}
+    {{#if details.data.0.cve_id}}
+      <div>
+        <span class="p-key">CVE ID: </span>
+        <span class="p-value">{{details.data.0.cve_id}}</span>
+      </div>
+    {{/if}}
+    {{#if details.data.0.summary}}
+      <div>
+        <span class="p-key">CVE Summary: </span>
+        <span class="p-value">{{details.data.0.summary}}</span>
+      </div>
+    {{/if}}
+    {{#if details.data.0.cvss3_score}}
+      <div>
+        <span class="p-key">CVSSv3 Score: </span>
+        <span class="p-value">{{details.data.0.cvss3_score}}</span>
+      </div>
+    {{/if}}
+    {{#if details.data.0.cvss3_vector}}
+      <div>
+        <span class="p-key">CVSSv3 Vector: </span>
+        <span class="p-value">{{details.data.0.cvss3_vector}}</span>
+      </div>
+    {{/if}}
+    {{#if details.data.0.severity}}
+      <div>
+        <span class="p-key">Severity: </span>
+        <span class="p-value">{{details.data.0.severity}}</span>
+      </div>
+    {{/if}}
+    {{#if details.data.0.fix_available}}
+      <div>
+        <span class="p-key">Fix Available: </span>
+        <span class="p-value">{{details.data.0.fix_available}}</span>
+      </div>
+    {{/if}}
+    {{#if details.data.0.published}}
+      <div>
+        <span class="p-key">Published: </span>
+        <span class="p-value">{{details.data.0.published}}</span>
+      </div>
+    {{/if}}
+    {{#if details.data.0.affected_packages}}
+      <div>
+        <span class="p-key">Affected Packages: </span>
+        {{#each details.data.0.affected_packages as |package|}}
+          <span class="section-tag">{{package}}</span>
+        {{/each}}
+      </div>
+    {{/if}}
+    {{#if details.data.0.source_link}}
+      <div>
+        <span class="p-key">Source Link: </span>
+        <a href="{{details.data.0.source_link}}" class="p-link"> {{details.data.0.source_link}} {{fa-icon "external-link-square" class="external-link-icon"}}</a>
+      </div>
+    {{/if}}
+    {{#if details.data.0.vendor_source_link}}
+      <div>
+        <span class="p-key">Vendor Source Link: </span>
+        <a href="{{details.data.0.vendor_source_link}}" class="p-link"> {{details.data.0.vendor_source_link}} {{fa-icon "external-link-square" class="external-link-icon"}}</a>
+      </div>
+    {{/if}}
+    {{#if (eq numAssetsShown 0)}}
+      <div>
+        <span class="p-title">{{fa-icon "tags" fixedWidth=true}} No Assets Found</span>
+      </div>
+    {{else}}
+      <div class="toggle-header">
+        <span class="p-action" {{action "toggleShowAssets"}}>
+          {{fa-icon "server" fixedWidth=true}}
+          Assets ({{numAssetsShown}} of {{details.data.length}})
+          {{fa-icon (if showAssets "caret-up" "caret-down") fixedWidth=true}}
+        </span>
+      </div>
+      {{#if showAssets}}
+        {{#each (limit details.data maxAssetsToShow) as |asset|}}
+          <span class="section-tag">{{asset.asset_name}}</span>
+        {{/each}}
+      {{/if}}
+    {{/if}}
+  {{/if}}
+{{/if}}

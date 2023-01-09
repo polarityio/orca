@@ -1,0 +1,60 @@
+{
+  "name": "ORCA Security",
+  "acronym": "ORCA",
+  "description": "Orca Security provides cloud-wide, workload-deep security and compliance for AWS, Azure, and GCP without agents.",
+  "entityTypes": [
+    "IPv4",
+    "domain",
+    "cve"
+  ],
+  "styles": [
+    "./styles/style.less"
+  ],
+  "block": {
+    "component": {
+      "file": "./components/block.js"
+    },
+    "template": {
+      "file": "./templates/block.hbs"
+    }
+  },
+  "summary": {
+    "component": {
+      "file": "./components/summary.js"
+    },
+    "template": {
+      "file": "./templates/summary.hbs"
+    }
+  },
+  "request": {
+    "cert": "",
+    "key": "",
+    "passphrase": "",
+    "ca": "",
+    "proxy": "",
+    "rejectUnauthorized": true
+  },
+  "logging": {
+    "level": "info"
+  },
+  "options": [
+    {
+      "key": "url",
+      "name": "Base Orca Security API URL",
+      "description": "The base URL for the Orca Security API including the schema (i.e., https://)",
+      "type": "text",
+      "default": "https://api.orcasecurity.io/api",
+      "userCanEdit": false,
+      "adminOnly": true
+    },
+    {
+      "key": "securityToken",
+      "name": "Valid Security Token",
+      "description": "Valid Security Token to authenticate with the Orca Security API",
+      "default": "",
+      "type": "password",
+      "userCanEdit": true,
+      "adminOnly": false
+    }
+  ]
+}

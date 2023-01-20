@@ -25,6 +25,7 @@ module.exports = {
   description:
     'Orca Security provides cloud-wide, workload-deep security and compliance for AWS, Azure, and GCP without agents.',
   entityTypes: ['IPv4', 'domain', 'cve'],
+  defaultColor: 'light-blue',
   /**
    * An array of style files (css or less) that will be included for your integration. Any styles specified in
    * the below files can be used in your custom template.

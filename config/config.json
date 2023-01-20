@@ -3,7 +3,7 @@
   "acronym": "ORCA",
   "description": "Orca Security provides cloud-wide, workload-deep security and compliance for AWS, Azure, and GCP without agents.",
   "entityTypes": ["IPv4", "domain", "cve"],
-  "defaultColor": "light-gray",
+  "defaultColor": "light-blue",
   "styles": ["./styles/style.less"],
   "block": {
     "component": {

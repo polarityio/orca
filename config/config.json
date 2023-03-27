@@ -1,4 +1,5 @@
 {
+  "polarityIntegrationUuid": "ea897be0-cce1-11ed-aeee-075d3490155d",
   "name": "ORCA Security",
   "acronym": "ORCA",
   "description": "Orca Security provides cloud-wide, workload-deep security and compliance for AWS, Azure, and GCP without agents.",
